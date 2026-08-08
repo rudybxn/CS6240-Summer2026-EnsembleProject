@@ -1,0 +1,106 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>cs6240</groupId>
+  <artifactId>ensemble</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0</version>
+  <name>ensemble</name>
+  <properties>
+    <encoding>UTF-8</encoding>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+    <scala.version>2.12.17</scala.version>
+    <scala.compat.version>2.12</scala.compat.version>
+    <spark.version>3.3.2</spark.version>
+    <!-- Pinned below smile-core 4.x (requires JDK 21) / 5.x+ (requires JDK 25) - this
+         project runs on Java 11, local and on EMR, so anything past the 3.x line would
+         fail to load in the same JVM as the Spark executor that calls it. -->
+    <smile.version>3.0.2</smile.version>
+  </properties>
+
+  <dependencies>
+    <!-- Spark: provided, same as HW4 - already on the classpath via spark-submit / EMR. -->
+    <dependency>
+      <groupId>org.scala-lang</groupId>
+      <artifactId>scala-library</artifactId>
+      <version>${scala.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-core_${scala.compat.version}</artifactId>
+      <version>${spark.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-sql_${scala.compat.version}</artifactId>
+      <version>${spark.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <!-- Needed only by the separate MLlib baseline job (and, if convenient, by the
+         shared data-loading code, which is plumbing rather than the graded
+         "from scratch" algorithmic surface). -->
+    <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-mllib_${scala.compat.version}</artifactId>
+      <version>${spark.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- Smile: NOT provided. EMR has no idea what this is, so it must travel inside
+         the fat jar for executors to have it on their classpath. This is the only
+         dependency that should ever be imported outside the base-learner module. -->
+    <dependency>
+      <groupId>com.github.haifengl</groupId>
+      <artifactId>smile-core</artifactId>
+      <version>${smile.version}</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <!-- No <sourceDirectory> override: maven-compiler-plugin compiles src/main/java,
+         and scala-maven-plugin (add-source) compiles src/main/scala. Both land in one jar. -->
+    <plugins>
+      <plugin>
+        <groupId>net.alchim31.maven</groupId>
+        <artifactId>scala-maven-plugin</artifactId>
+        <version>3.3.1</version>
+        <executions>
+          <execution>
+            <id>scala-compile</id>
+            <goals>
+              <goal>add-source</goal>
+              <goal>compile</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <scalaVersion>${scala.version}</scalaVersion>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.0</version>
+        <configuration>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.target}</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.1.1</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
