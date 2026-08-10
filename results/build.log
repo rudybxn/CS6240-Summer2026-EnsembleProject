@@ -1,0 +1,2 @@
+mvn clean package -q
+cp target/ensemble-1.0.jar ensemble.jar

@@ -1,0 +1,634 @@
+2026-08-08 19:03:13,725 WARN util.Utils: Your hostname, Rudys-MacBook-Pro.local resolves to a loopback address: 127.0.0.1; using 10.0.0.215 instead (on interface en0)
+2026-08-08 19:03:13,727 WARN util.Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+2026-08-08 19:03:13,970 INFO spark.SparkContext: Running Spark version 3.3.2
+2026-08-08 19:03:14,072 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2026-08-08 19:03:14,122 INFO resource.ResourceUtils: ==============================================================
+2026-08-08 19:03:14,122 INFO resource.ResourceUtils: No custom resources configured for spark.driver.
+2026-08-08 19:03:14,122 INFO resource.ResourceUtils: ==============================================================
+2026-08-08 19:03:14,122 INFO spark.SparkContext: Submitted application: ToolchainSmokeTest
+2026-08-08 19:03:14,133 INFO resource.ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+2026-08-08 19:03:14,141 INFO resource.ResourceProfile: Limiting resource is cpu
+2026-08-08 19:03:14,141 INFO resource.ResourceProfileManager: Added ResourceProfile id: 0
+2026-08-08 19:03:14,172 INFO spark.SecurityManager: Changing view acls to: rudybanerjee
+2026-08-08 19:03:14,172 INFO spark.SecurityManager: Changing modify acls to: rudybanerjee
+2026-08-08 19:03:14,173 INFO spark.SecurityManager: Changing view acls groups to: 
+2026-08-08 19:03:14,173 INFO spark.SecurityManager: Changing modify acls groups to: 
+2026-08-08 19:03:14,173 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(rudybanerjee); groups with view permissions: Set(); users  with modify permissions: Set(rudybanerjee); groups with modify permissions: Set()
+2026-08-08 19:03:14,324 INFO util.Utils: Successfully started service 'sparkDriver' on port 55588.
+2026-08-08 19:03:14,340 INFO spark.SparkEnv: Registering MapOutputTracker
+2026-08-08 19:03:14,361 INFO spark.SparkEnv: Registering BlockManagerMaster
+2026-08-08 19:03:14,372 INFO storage.BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+2026-08-08 19:03:14,372 INFO storage.BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+2026-08-08 19:03:14,374 INFO spark.SparkEnv: Registering BlockManagerMasterHeartbeat
+2026-08-08 19:03:14,387 INFO storage.DiskBlockManager: Created local directory at /private/var/folders/01/7kzv0jfn5b53d16tqv0sk5r80000gn/T/blockmgr-0180bf10-f367-417c-936c-6fc8a3ff76fc
+2026-08-08 19:03:14,400 INFO memory.MemoryStore: MemoryStore started with capacity 434.4 MiB
+2026-08-08 19:03:14,408 INFO spark.SparkEnv: Registering OutputCommitCoordinator
+2026-08-08 19:03:14,437 INFO util.log: Logging initialized @1705ms to org.sparkproject.jetty.util.log.Slf4jLog
+2026-08-08 19:03:14,512 INFO server.Server: jetty-9.4.48.v20220622; built: 2022-06-21T20:42:25.880Z; git: 6b67c5719d1f4371b33655ff2d047d24e171e49a; jvm 11.0.23+7-LTS-222
+2026-08-08 19:03:14,520 INFO server.Server: Started @1789ms
+2026-08-08 19:03:14,535 INFO server.AbstractConnector: Started ServerConnector@fc807c1{HTTP/1.1, (http/1.1)}{0.0.0.0:4040}
+2026-08-08 19:03:14,535 INFO util.Utils: Successfully started service 'SparkUI' on port 4040.
+2026-08-08 19:03:14,545 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@176996c3{/,null,AVAILABLE,@Spark}
+2026-08-08 19:03:14,553 INFO spark.SparkContext: Added JAR file:/Users/rudybanerjee/northeastern_work/CS6240/project/ensemble.jar at spark://10.0.0.215:55588/jars/ensemble.jar with timestamp 1786230193965
+2026-08-08 19:03:14,611 INFO executor.Executor: Starting executor ID driver on host 10.0.0.215
+2026-08-08 19:03:14,614 INFO executor.Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+2026-08-08 19:03:14,620 INFO executor.Executor: Fetching spark://10.0.0.215:55588/jars/ensemble.jar with timestamp 1786230193965
+2026-08-08 19:03:14,646 INFO client.TransportClientFactory: Successfully created connection to /10.0.0.215:55588 after 14 ms (0 ms spent in bootstraps)
+2026-08-08 19:03:14,650 INFO util.Utils: Fetching spark://10.0.0.215:55588/jars/ensemble.jar to /private/var/folders/01/7kzv0jfn5b53d16tqv0sk5r80000gn/T/spark-b398ac30-9560-4757-8ca5-c7d408741254/userFiles-f7bf813b-d1c6-4d83-890f-d95cb6dabe40/fetchFileTemp7733654631488819481.tmp
+2026-08-08 19:03:14,698 INFO executor.Executor: Adding file:/private/var/folders/01/7kzv0jfn5b53d16tqv0sk5r80000gn/T/spark-b398ac30-9560-4757-8ca5-c7d408741254/userFiles-f7bf813b-d1c6-4d83-890f-d95cb6dabe40/ensemble.jar to class loader
+2026-08-08 19:03:14,702 INFO util.Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 55590.
+2026-08-08 19:03:14,702 INFO netty.NettyBlockTransferService: Server created on 10.0.0.215:55590
+2026-08-08 19:03:14,703 INFO storage.BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+2026-08-08 19:03:14,706 INFO storage.BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 10.0.0.215, 55590, None)
+2026-08-08 19:03:14,708 INFO storage.BlockManagerMasterEndpoint: Registering block manager 10.0.0.215:55590 with 434.4 MiB RAM, BlockManagerId(driver, 10.0.0.215, 55590, None)
+2026-08-08 19:03:14,709 INFO storage.BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 10.0.0.215, 55590, None)
+2026-08-08 19:03:14,710 INFO storage.BlockManager: Initialized BlockManager: BlockManagerId(driver, 10.0.0.215, 55590, None)
+2026-08-08 19:03:14,816 INFO handler.ContextHandler: Stopped o.s.j.s.ServletContextHandler@176996c3{/,null,STOPPED,@Spark}
+2026-08-08 19:03:14,817 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@6f3f0ae{/jobs,null,AVAILABLE,@Spark}
+2026-08-08 19:03:14,817 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@57a6a933{/jobs/json,null,AVAILABLE,@Spark}
+2026-08-08 19:03:14,818 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@69aa7d76{/jobs/job,null,AVAILABLE,@Spark}
+2026-08-08 19:03:14,818 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@f1266c6{/jobs/job/json,null,AVAILABLE,@Spark}
+2026-08-08 19:03:14,818 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@3e8799f{/stages,null,AVAILABLE,@Spark}
+2026-08-08 19:03:14,819 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@270d43a7{/stages/json,null,AVAILABLE,@Spark}
+2026-08-08 19:03:14,819 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@7b2ccba5{/stages/stage,null,AVAILABLE,@Spark}
+2026-08-08 19:03:14,820 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@5d5a51b1{/stages/stage/json,null,AVAILABLE,@Spark}
+2026-08-08 19:03:14,820 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@50ab56e2{/stages/pool,null,AVAILABLE,@Spark}
+2026-08-08 19:03:14,820 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@74834afd{/stages/pool/json,null,AVAILABLE,@Spark}
+2026-08-08 19:03:14,821 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@d499c13{/storage,null,AVAILABLE,@Spark}
+2026-08-08 19:03:14,821 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@42d6c12d{/storage/json,null,AVAILABLE,@Spark}
+2026-08-08 19:03:14,821 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@7a2ab862{/storage/rdd,null,AVAILABLE,@Spark}
+2026-08-08 19:03:14,822 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@4733f6f5{/storage/rdd/json,null,AVAILABLE,@Spark}
+2026-08-08 19:03:14,822 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@438c9aa7{/environment,null,AVAILABLE,@Spark}
+2026-08-08 19:03:14,822 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@6c8f60f3{/environment/json,null,AVAILABLE,@Spark}
+2026-08-08 19:03:14,823 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@71b6172c{/executors,null,AVAILABLE,@Spark}
+2026-08-08 19:03:14,823 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@4fb56bea{/executors/json,null,AVAILABLE,@Spark}
+2026-08-08 19:03:14,824 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@1f95881a{/executors/threadDump,null,AVAILABLE,@Spark}
+2026-08-08 19:03:14,824 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@733ec58b{/executors/threadDump/json,null,AVAILABLE,@Spark}
+2026-08-08 19:03:14,829 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@415ef4d8{/static,null,AVAILABLE,@Spark}
+2026-08-08 19:03:14,829 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@9b5f3c7{/,null,AVAILABLE,@Spark}
+2026-08-08 19:03:14,830 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@61ae0d43{/api,null,AVAILABLE,@Spark}
+2026-08-08 19:03:14,830 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@5995851e{/jobs/job/kill,null,AVAILABLE,@Spark}
+2026-08-08 19:03:14,830 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@51bddd98{/stages/stage/kill,null,AVAILABLE,@Spark}
+2026-08-08 19:03:14,833 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@54e43bfe{/metrics/json,null,AVAILABLE,@Spark}
+2026-08-08 19:03:15,085 INFO spark.SparkContext: Starting job: sum at ToolchainSmokeTest.scala:26
+2026-08-08 19:03:15,091 INFO scheduler.DAGScheduler: Got job 0 (sum at ToolchainSmokeTest.scala:26) with 8 output partitions
+2026-08-08 19:03:15,091 INFO scheduler.DAGScheduler: Final stage: ResultStage 0 (sum at ToolchainSmokeTest.scala:26)
+2026-08-08 19:03:15,091 INFO scheduler.DAGScheduler: Parents of final stage: List()
+2026-08-08 19:03:15,092 INFO scheduler.DAGScheduler: Missing parents: List()
+2026-08-08 19:03:15,093 INFO scheduler.DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[2] at numericRDDToDoubleRDDFunctions at ToolchainSmokeTest.scala:26), which has no missing parents
+2026-08-08 19:03:15,145 INFO memory.MemoryStore: Block broadcast_0 stored as values in memory (estimated size 4.7 KiB, free 434.4 MiB)
+2026-08-08 19:03:15,390 INFO memory.MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 2.6 KiB, free 434.4 MiB)
+2026-08-08 19:03:15,393 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on 10.0.0.215:55590 (size: 2.6 KiB, free: 434.4 MiB)
+2026-08-08 19:03:15,394 INFO spark.SparkContext: Created broadcast 0 from broadcast at DAGScheduler.scala:1513
+2026-08-08 19:03:15,405 INFO scheduler.DAGScheduler: Submitting 8 missing tasks from ResultStage 0 (MapPartitionsRDD[2] at numericRDDToDoubleRDDFunctions at ToolchainSmokeTest.scala:26) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5, 6, 7))
+2026-08-08 19:03:15,406 INFO scheduler.TaskSchedulerImpl: Adding task set 0.0 with 8 tasks resource profile 0
+2026-08-08 19:03:15,446 INFO scheduler.TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (10.0.0.215, executor driver, partition 0, PROCESS_LOCAL, 4578 bytes) taskResourceAssignments Map()
+2026-08-08 19:03:15,448 INFO scheduler.TaskSetManager: Starting task 1.0 in stage 0.0 (TID 1) (10.0.0.215, executor driver, partition 1, PROCESS_LOCAL, 4578 bytes) taskResourceAssignments Map()
+2026-08-08 19:03:15,448 INFO scheduler.TaskSetManager: Starting task 2.0 in stage 0.0 (TID 2) (10.0.0.215, executor driver, partition 2, PROCESS_LOCAL, 4578 bytes) taskResourceAssignments Map()
+2026-08-08 19:03:15,448 INFO scheduler.TaskSetManager: Starting task 3.0 in stage 0.0 (TID 3) (10.0.0.215, executor driver, partition 3, PROCESS_LOCAL, 4578 bytes) taskResourceAssignments Map()
+2026-08-08 19:03:15,449 INFO scheduler.TaskSetManager: Starting task 4.0 in stage 0.0 (TID 4) (10.0.0.215, executor driver, partition 4, PROCESS_LOCAL, 4578 bytes) taskResourceAssignments Map()
+2026-08-08 19:03:15,449 INFO scheduler.TaskSetManager: Starting task 5.0 in stage 0.0 (TID 5) (10.0.0.215, executor driver, partition 5, PROCESS_LOCAL, 4578 bytes) taskResourceAssignments Map()
+2026-08-08 19:03:15,449 INFO scheduler.TaskSetManager: Starting task 6.0 in stage 0.0 (TID 6) (10.0.0.215, executor driver, partition 6, PROCESS_LOCAL, 4578 bytes) taskResourceAssignments Map()
+2026-08-08 19:03:15,449 INFO scheduler.TaskSetManager: Starting task 7.0 in stage 0.0 (TID 7) (10.0.0.215, executor driver, partition 7, PROCESS_LOCAL, 4578 bytes) taskResourceAssignments Map()
+2026-08-08 19:03:15,456 INFO executor.Executor: Running task 2.0 in stage 0.0 (TID 2)
+2026-08-08 19:03:15,457 INFO executor.Executor: Running task 4.0 in stage 0.0 (TID 4)
+2026-08-08 19:03:15,457 INFO executor.Executor: Running task 6.0 in stage 0.0 (TID 6)
+2026-08-08 19:03:15,457 INFO executor.Executor: Running task 5.0 in stage 0.0 (TID 5)
+2026-08-08 19:03:15,457 INFO executor.Executor: Running task 3.0 in stage 0.0 (TID 3)
+2026-08-08 19:03:15,457 INFO executor.Executor: Running task 1.0 in stage 0.0 (TID 1)
+2026-08-08 19:03:15,457 INFO executor.Executor: Running task 7.0 in stage 0.0 (TID 7)
+2026-08-08 19:03:15,457 INFO executor.Executor: Running task 0.0 in stage 0.0 (TID 0)
+2026-08-08 19:03:15,525 INFO executor.Executor: Finished task 5.0 in stage 0.0 (TID 5). 928 bytes result sent to driver
+2026-08-08 19:03:15,525 INFO executor.Executor: Finished task 7.0 in stage 0.0 (TID 7). 928 bytes result sent to driver
+2026-08-08 19:03:15,525 INFO executor.Executor: Finished task 4.0 in stage 0.0 (TID 4). 928 bytes result sent to driver
+2026-08-08 19:03:15,525 INFO executor.Executor: Finished task 3.0 in stage 0.0 (TID 3). 928 bytes result sent to driver
+2026-08-08 19:03:15,525 INFO executor.Executor: Finished task 2.0 in stage 0.0 (TID 2). 928 bytes result sent to driver
+2026-08-08 19:03:15,525 INFO executor.Executor: Finished task 6.0 in stage 0.0 (TID 6). 928 bytes result sent to driver
+2026-08-08 19:03:15,525 INFO executor.Executor: Finished task 1.0 in stage 0.0 (TID 1). 928 bytes result sent to driver
+2026-08-08 19:03:15,525 INFO executor.Executor: Finished task 0.0 in stage 0.0 (TID 0). 928 bytes result sent to driver
+2026-08-08 19:03:15,529 INFO scheduler.TaskSetManager: Finished task 5.0 in stage 0.0 (TID 5) in 80 ms on 10.0.0.215 (executor driver) (1/8)
+2026-08-08 19:03:15,530 INFO scheduler.TaskSetManager: Finished task 4.0 in stage 0.0 (TID 4) in 81 ms on 10.0.0.215 (executor driver) (2/8)
+2026-08-08 19:03:15,531 INFO scheduler.TaskSetManager: Finished task 2.0 in stage 0.0 (TID 2) in 83 ms on 10.0.0.215 (executor driver) (3/8)
+2026-08-08 19:03:15,531 INFO scheduler.TaskSetManager: Finished task 3.0 in stage 0.0 (TID 3) in 83 ms on 10.0.0.215 (executor driver) (4/8)
+2026-08-08 19:03:15,531 INFO scheduler.TaskSetManager: Finished task 6.0 in stage 0.0 (TID 6) in 82 ms on 10.0.0.215 (executor driver) (5/8)
+2026-08-08 19:03:15,532 INFO scheduler.TaskSetManager: Finished task 1.0 in stage 0.0 (TID 1) in 84 ms on 10.0.0.215 (executor driver) (6/8)
+2026-08-08 19:03:15,532 INFO scheduler.TaskSetManager: Finished task 7.0 in stage 0.0 (TID 7) in 83 ms on 10.0.0.215 (executor driver) (7/8)
+2026-08-08 19:03:15,532 INFO scheduler.TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 102 ms on 10.0.0.215 (executor driver) (8/8)
+2026-08-08 19:03:15,533 INFO scheduler.TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+2026-08-08 19:03:15,536 INFO scheduler.DAGScheduler: ResultStage 0 (sum at ToolchainSmokeTest.scala:26) finished in 0.434 s
+2026-08-08 19:03:15,537 INFO scheduler.DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+2026-08-08 19:03:15,538 INFO scheduler.TaskSchedulerImpl: Killing all running tasks in stage 0: Stage finished
+2026-08-08 19:03:15,538 INFO scheduler.DAGScheduler: Job 0 finished: sum at ToolchainSmokeTest.scala:26, took 0.452915 s
+[spark] sum of 1..1000 via RDD = 500500 (expected 500500)
+2026-08-08 19:03:15,543 INFO server.AbstractConnector: Stopped Spark@fc807c1{HTTP/1.1, (http/1.1)}{0.0.0.0:4040}
+2026-08-08 19:03:15,544 INFO ui.SparkUI: Stopped Spark web UI at http://10.0.0.215:4040
+2026-08-08 19:03:15,549 INFO spark.MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+2026-08-08 19:03:15,557 INFO memory.MemoryStore: MemoryStore cleared
+2026-08-08 19:03:15,557 INFO storage.BlockManager: BlockManager stopped
+2026-08-08 19:03:15,559 INFO storage.BlockManagerMaster: BlockManagerMaster stopped
+2026-08-08 19:03:15,560 INFO scheduler.OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+2026-08-08 19:03:15,565 INFO spark.SparkContext: Successfully stopped SparkContext
+2026-08-08 19:03:15,607 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,607 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,607 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,607 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,607 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,607 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,607 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,607 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,607 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,607 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,607 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,608 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,607 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,607 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,608 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,608 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,608 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,608 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,608 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,608 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,608 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,608 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,608 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,608 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,608 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,608 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,608 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,608 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,608 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,608 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,608 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,609 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,609 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,608 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,609 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,609 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,608 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,609 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,609 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,609 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,609 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,609 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,609 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,609 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,609 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,609 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,609 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,609 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,609 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,609 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,609 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,609 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,609 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,610 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,610 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,610 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,609 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,610 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,610 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,609 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,610 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,610 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,610 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,610 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,610 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,610 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,610 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,610 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,610 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,610 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,610 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,610 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,611 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,611 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,611 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,611 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,611 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,611 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,611 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,611 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,610 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,611 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,611 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,611 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,611 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,611 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,612 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,612 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,611 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,611 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,612 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,612 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,612 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,612 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,612 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,612 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,612 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,612 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,612 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,612 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,612 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,612 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,612 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,612 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,612 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,612 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,612 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,612 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,612 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,612 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,612 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,613 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,613 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,612 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,613 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,613 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,613 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,613 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,613 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,613 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,613 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,613 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,613 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,613 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,613 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,613 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,613 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,613 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,613 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,613 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,613 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,614 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,614 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,613 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,614 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,614 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,614 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,614 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,614 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,614 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,614 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,614 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,614 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,614 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,614 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,614 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,614 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,614 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,615 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,615 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,614 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,615 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,615 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,615 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,615 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,615 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,615 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,615 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,615 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,615 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,615 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,615 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,615 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,615 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,615 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,615 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,615 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,615 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,615 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,615 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,615 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,616 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,616 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,615 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,616 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,615 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,616 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,616 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,616 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,617 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,616 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,616 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,616 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,616 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,617 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,617 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,617 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,617 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,617 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,617 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,617 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,617 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,617 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,617 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,617 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,617 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,617 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,617 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,617 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,618 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,618 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,618 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,618 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,618 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,618 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,618 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,618 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,618 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,618 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,618 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,618 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,618 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,619 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,618 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,619 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,619 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,619 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,619 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,619 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,619 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,619 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,618 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,618 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,619 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,619 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,619 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,619 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,619 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,619 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,619 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,619 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,620 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,620 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,619 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,619 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,619 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,619 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,620 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,620 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,621 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,621 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,620 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,620 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,620 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,621 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,621 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,621 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,621 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,621 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,621 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,621 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,621 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,621 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,621 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,621 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,622 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,621 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,621 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,621 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,622 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,622 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,622 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,622 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,622 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,622 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,622 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,622 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,622 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,623 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,623 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,623 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,623 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,623 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,623 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,623 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,623 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,623 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,624 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,623 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,624 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,624 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,624 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,624 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,624 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,624 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,624 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,624 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,624 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,624 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,624 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,624 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,624 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,624 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,624 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,625 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,624 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,624 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,625 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,625 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,625 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,625 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,624 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,625 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,625 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,625 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,625 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,625 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,625 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,625 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,625 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,625 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,625 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,625 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,625 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,625 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,625 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,625 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,625 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,626 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,626 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,626 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,626 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,626 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,626 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,626 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,626 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,626 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,626 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,626 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,626 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,626 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,626 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,626 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,627 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,626 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,627 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,626 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,627 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,627 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,626 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,627 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,627 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,627 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,627 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,627 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,627 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,627 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,627 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,627 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,627 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,627 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,627 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,627 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,627 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,627 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,628 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,628 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,627 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,627 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,627 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,627 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,628 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,628 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,628 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,628 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,628 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,628 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,628 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,628 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,628 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,628 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,628 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,628 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,628 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,628 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,628 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,628 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,629 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,628 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,628 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,629 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,628 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,629 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,629 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,629 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,629 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,629 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,629 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,629 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,630 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,630 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,630 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,630 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,630 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,630 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,630 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,630 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,630 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,630 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,630 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,630 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,630 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,630 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,630 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,630 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,630 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,631 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,631 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,630 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,630 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,631 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,630 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,631 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,631 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,631 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,631 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,631 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,631 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,631 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,631 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,631 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,631 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,631 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,631 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,631 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,631 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,631 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,631 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,631 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,631 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,631 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,632 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,632 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,632 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,631 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,631 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,631 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,633 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,632 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,632 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,632 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,632 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,632 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,633 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,633 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,633 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,633 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,633 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,633 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,633 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,633 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,633 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,633 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,633 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,633 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,633 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,634 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,634 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,633 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,634 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,633 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,633 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,634 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,633 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,634 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,633 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,634 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,634 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,634 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,634 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,634 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,634 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,634 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,634 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,634 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,634 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,634 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,634 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,634 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,634 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,634 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,634 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,634 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,635 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,634 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,634 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,634 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,635 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,635 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,635 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,635 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,635 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,635 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,635 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,635 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,635 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,635 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,635 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,635 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+2026-08-08 19:03:15,635 INFO classification.RandomForest: Decision tree OOB accuracy: 100.00%
+[smile] predicted class for row 0 = 0, posteriori = [0.9545454545454541, 0.0454545454545459]
+2026-08-08 19:03:15,640 INFO util.ShutdownHookManager: Shutdown hook called
+2026-08-08 19:03:15,640 INFO util.ShutdownHookManager: Deleting directory /private/var/folders/01/7kzv0jfn5b53d16tqv0sk5r80000gn/T/spark-b398ac30-9560-4757-8ca5-c7d408741254
+2026-08-08 19:03:15,643 INFO util.ShutdownHookManager: Deleting directory /private/var/folders/01/7kzv0jfn5b53d16tqv0sk5r80000gn/T/spark-4e9ee2b7-ca66-4421-a9de-5a44a3c121b6
