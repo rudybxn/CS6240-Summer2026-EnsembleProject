@@ -8,15 +8,14 @@ import smile.data.`type`.StructType
 import smile.data.vector.{BaseVector, DoubleVector, IntVector}
 
 // Hyperparameters for one base-learner tree. Kept separate from Smile's own
-// types so the hyperparameter-search module never has to import Smile -
-// only this module does.
+// types so the hyperparameter-search module never has to import Smile
 case class TreeParams(maxDepth: Int = 20, maxNodes: Int = 100, nodeSize: Int = 5)
 
 // A trained base learner. Serializable so the framework can broadcast a
 // whole ensemble of these to every executor for parallel prediction.
 trait BaseLearner extends Serializable {
   // P(label = 1) for one feature vector. Both aggregation strategies -
-  // majority vote (threshold at 0.5) or mean probability - need only this.
+  // majority vote (threshold at 0.5) or mean probability
   def predictProbability(features: Array[Double]): Double
 }
 
@@ -45,7 +44,7 @@ object BaseLearner {
     )
 
     // The model's formula binds against the full schema (it looks up "label"
-    // by name even though prediction never reads its value) - so single-row
+    // by name even though prediction never reads its value) - single-row
     // prediction Tuples need that same full schema, label slot included.
     new SmileDecisionTreeLearner(tree, trainDf.schema())
   }
@@ -58,7 +57,7 @@ private class SmileDecisionTreeLearner(tree: DecisionTree, fullSchema: StructTyp
     val values: Array[Object] =
       Array.tabulate[Object](features.length + 1) { i =>
         if (i < features.length) java.lang.Double.valueOf(features(i))
-        else Integer.valueOf(0) // dummy label - declared in the schema, never read by predict
+        else Integer.valueOf(0) 
       }
     val row = Tuple.of(values, fullSchema)
 

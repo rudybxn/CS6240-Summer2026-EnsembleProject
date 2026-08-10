@@ -22,7 +22,14 @@ object CsvToParquet {
 
     val raw = spark.read.schema(HiggsSchema.raw).csv(inputPath)
 
-    val indexed = raw.rdd.zipWithIndex()
+    // Reading a .gz input is unavoidably single-threaded - gzip isn't
+    // splittable, so Spark can't divide one .gz file across tasks no matter
+    // how big the cluster is. zipWithIndex must run before repartition
+    // (it needs the original, unshuffled read to assign correct global
+    // indices); repartition after is what lets everything downstream -
+    // count, both filters, both writes - actually run in parallel instead
+    // of staying stuck on that single input partition for the whole job.
+    val indexed = raw.rdd.zipWithIndex().repartition(spark.sparkContext.defaultParallelism)
     val total = indexed.count()
     val trainCutoff = total - testSize
     println(s"[csvToParquet] total rows = $total, train = $trainCutoff, test = $testSize")
