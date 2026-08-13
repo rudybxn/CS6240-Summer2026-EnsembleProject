@@ -21,10 +21,6 @@ higgs.csv.gz=${data.dir}/HIGGS.csv.gz
 
 local.master=local[4]
 
-# Defaults point at the 100K subset, which is committed to the repository, so
-# every local-* target below runs with no arguments and no data download.
-# Override on the command line for a different dataset, e.g.
-#   make local-experiment train=data/scaling/parquet_1m/train test=data/scaling/parquet_1m/test
 train=data/scaling/parquet_100k/train
 test=data/scaling/parquet_100k/test
 nummodels=10
@@ -111,20 +107,51 @@ aws.region=us-east-1
 aws.bucket.name=cs6240-ensemble-rudybxn
 aws.log.dir=log
 
-# 1 primary + 2 core nodes, m4.large. 
+# m4.xlarge (4 vCPU, 16 GB) rather than m4.large for the full-scale runs:
+# Override on the command line for the speedup study, e.g.
+#   make aws-scaling aws.core.num.nodes=4
 aws.primary.num.nodes=1
 aws.core.num.nodes=2
-aws.instance.type=m4.large
+aws.instance.type=m4.xlarge
 
-
-aws.executor.memory=2g
-aws.executor.cores=1
-aws.executor.instances=2
-aws.driver.memory=2g
+# Executorsmust scale with cluster size. With a fixed count, adding core
+# nodes leaves the extra capacity unrequested, so runtime stays flat and the
+# study reports a speedup near 1.0 no matter how well the algorithm actually
+# parallelises.
+# Per node: 2 executors x 2 cores = 4 cores, matching m4.xlarge's 4 vCPU;
+# 2 x 5g = 10g against the ~12g YARN gets per node, leaving room for the
+# ApplicationMaster.
+aws.executors.per.node=2
+aws.executor.instances=$(shell expr ${aws.core.num.nodes} \* ${aws.executors.per.node})
+aws.executor.memory=5g
+aws.executor.cores=2
+aws.driver.memory=4g
 
 aws.data.remote=s3://${aws.bucket.name}/data
 aws.train.path=${aws.data.remote}/train
 aws.test.path=${aws.data.remote}/test
+
+# Raw dataset in S3, and where the on-cluster conversion writes the full
+# 10.5M/500K Parquet split.
+aws.raw.path=s3://${aws.bucket.name}/raw/HIGGS.csv.gz
+aws.full.data=s3://${aws.bucket.name}/data-full
+aws.full.train=${aws.full.data}/train
+aws.full.test=${aws.full.data}/test
+aws.full.testsize=500000
+
+# Which dataset aws-scaling sweeps. Defaults to the full 11M split; override
+# to run the same sweep against a smaller subset, which is what the
+# input-size scalability study on a fixed cluster does:
+#   make aws-scaling aws.core.num.nodes=4 label=1m \
+#        aws.sweep.train=s3://.../data-1m/train aws.sweep.test=s3://.../data-1m/test
+aws.sweep.train=${aws.full.train}
+aws.sweep.test=${aws.full.test}
+
+# Terminates the cluster after this many seconds with no work running. This
+# is not a job timeout and cannot cut a long run short - EMR only counts a
+# cluster as idle when no step is executing. It exists to catch the case
+# where --auto-terminate does not fire and a cluster is left running.
+aws.idle.timeout=3600
 
 # One-time: create the bucket the jar and data get uploaded to.
 make-bucket:
@@ -152,6 +179,64 @@ aws-experiment: upload-app-aws
 		--use-default-roles \
 		--enable-debugging \
 		--auto-terminate
+
+# Uploads the raw 2.6 GB HIGGS.csv.gz. Run once.
+upload-raw-aws:
+	aws s3 cp ${data.dir}/HIGGS.csv.gz ${aws.raw.path}
+
+# One-time: convert the full dataset to Parquet on the cluster, applying the
+# official last-500,000-rows test split. 
+aws-csv2parquet: upload-app-aws
+	aws emr create-cluster \
+		--name "${app.name}: CSV to Parquet (full)" \
+		--release-label ${aws.emr.release} \
+		--instance-groups '[{"InstanceCount":${aws.core.num.nodes},"InstanceGroupType":"CORE","InstanceType":"${aws.instance.type}"},{"InstanceCount":${aws.primary.num.nodes},"InstanceGroupType":"MASTER","InstanceType":"${aws.instance.type}"}]' \
+		--applications Name=Hadoop Name=Spark \
+		--steps '[{"Type":"CUSTOM_JAR","Name":"CsvToParquet","Jar":"command-runner.jar","ActionOnFailure":"TERMINATE_CLUSTER","Args":["spark-submit","--deploy-mode","client","--conf","spark.dynamicAllocation.enabled=false","--conf","spark.executor.memory=${aws.executor.memory}","--conf","spark.executor.cores=${aws.executor.cores}","--conf","spark.executor.instances=${aws.executor.instances}","--driver-memory","${aws.driver.memory}","--class","${job.csv2parquet}","s3://${aws.bucket.name}/${jar.name}","${aws.raw.path}","${aws.full.train}","${aws.full.test}","${aws.full.testsize}"]}]' \
+		--log-uri s3://${aws.bucket.name}/${aws.log.dir} \
+		--configurations '[{"Classification":"hadoop-env","Configurations":[{"Classification":"export","Configurations":[],"Properties":{"JAVA_HOME":"/usr/lib/jvm/java-11-amazon-corretto.x86_64"}}],"Properties":{}},{"Classification":"spark-env","Configurations":[{"Classification":"export","Configurations":[],"Properties":{"JAVA_HOME":"/usr/lib/jvm/java-11-amazon-corretto.x86_64"}}],"Properties":{}}]' \
+		--use-default-roles \
+		--enable-debugging \
+		--auto-terminate \
+		--auto-termination-policy IdleTimeout=${aws.idle.timeout}
+
+# The speedup study. Runs the 12-config sweep against the full dataset at
+# whatever cluster size is given, so only node count varies between runs:
+#   make aws-scaling aws.core.num.nodes=2 label=2node
+#   make aws-scaling aws.core.num.nodes=4 label=4node
+#   make aws-scaling aws.core.num.nodes=8 label=8node
+# Executor count scales automatically with the node count.
+aws-scaling: upload-app-aws
+	aws emr create-cluster \
+		--name "${app.name}: Scaling Sweep ${label} (${aws.core.num.nodes} core nodes)" \
+		--release-label ${aws.emr.release} \
+		--instance-groups '[{"InstanceCount":${aws.core.num.nodes},"InstanceGroupType":"CORE","InstanceType":"${aws.instance.type}"},{"InstanceCount":${aws.primary.num.nodes},"InstanceGroupType":"MASTER","InstanceType":"${aws.instance.type}"}]' \
+		--applications Name=Hadoop Name=Spark \
+		--steps '[{"Type":"CUSTOM_JAR","Name":"ScalingSweep","Jar":"command-runner.jar","ActionOnFailure":"TERMINATE_CLUSTER","Args":["spark-submit","--deploy-mode","client","--conf","spark.dynamicAllocation.enabled=false","--conf","spark.executor.memory=${aws.executor.memory}","--conf","spark.executor.cores=${aws.executor.cores}","--conf","spark.executor.instances=${aws.executor.instances}","--driver-memory","${aws.driver.memory}","--class","${job.scaling}","s3://${aws.bucket.name}/${jar.name}","${aws.sweep.train}","${aws.sweep.test}","${label}"]}]' \
+		--log-uri s3://${aws.bucket.name}/${aws.log.dir} \
+		--configurations '[{"Classification":"hadoop-env","Configurations":[{"Classification":"export","Configurations":[],"Properties":{"JAVA_HOME":"/usr/lib/jvm/java-11-amazon-corretto.x86_64"}}],"Properties":{}},{"Classification":"spark-env","Configurations":[{"Classification":"export","Configurations":[],"Properties":{"JAVA_HOME":"/usr/lib/jvm/java-11-amazon-corretto.x86_64"}}],"Properties":{}}]' \
+		--use-default-roles \
+		--enable-debugging \
+		--auto-terminate \
+		--auto-termination-policy IdleTimeout=${aws.idle.timeout}
+
+# The independent MLlib baseline at full scale, run on the same cluster shape
+# and the same train/test split the framework used, so the quality-vs-cost
+# comparison is like for like.
+# Usage: make aws-mllib-baseline
+aws-mllib-baseline: upload-app-aws
+	aws emr create-cluster \
+		--name "${app.name}: MLlib Baseline (full)" \
+		--release-label ${aws.emr.release} \
+		--instance-groups '[{"InstanceCount":${aws.core.num.nodes},"InstanceGroupType":"CORE","InstanceType":"${aws.instance.type}"},{"InstanceCount":${aws.primary.num.nodes},"InstanceGroupType":"MASTER","InstanceType":"${aws.instance.type}"}]' \
+		--applications Name=Hadoop Name=Spark \
+		--steps '[{"Type":"CUSTOM_JAR","Name":"MLlibBaseline","Jar":"command-runner.jar","ActionOnFailure":"TERMINATE_CLUSTER","Args":["spark-submit","--deploy-mode","client","--conf","spark.dynamicAllocation.enabled=false","--conf","spark.executor.memory=${aws.executor.memory}","--conf","spark.executor.cores=${aws.executor.cores}","--conf","spark.executor.instances=${aws.executor.instances}","--driver-memory","${aws.driver.memory}","--class","${job.mllib-baseline}","s3://${aws.bucket.name}/${jar.name}","${aws.full.train}","${aws.full.test}"]}]' \
+		--log-uri s3://${aws.bucket.name}/${aws.log.dir} \
+		--configurations '[{"Classification":"hadoop-env","Configurations":[{"Classification":"export","Configurations":[],"Properties":{"JAVA_HOME":"/usr/lib/jvm/java-11-amazon-corretto.x86_64"}}],"Properties":{}},{"Classification":"spark-env","Configurations":[{"Classification":"export","Configurations":[],"Properties":{"JAVA_HOME":"/usr/lib/jvm/java-11-amazon-corretto.x86_64"}}],"Properties":{}}]' \
+		--use-default-roles \
+		--enable-debugging \
+		--auto-terminate \
+		--auto-termination-policy IdleTimeout=${aws.idle.timeout}
 
 # Safety net: list active clusters, or manually terminate one by ID if
 # auto-terminate doesn't fire as expected. Worth checking after every run.
