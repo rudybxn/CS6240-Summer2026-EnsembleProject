@@ -1,0 +1,2 @@
+RESULT model=DecisionTree trainSeconds=16.87 accuracy=0.680836 auc=0.7310650714287935
+RESULT model=RandomForest trainSeconds=124.76 accuracy=0.681922 auc=0.7496017054471505

@@ -3,14 +3,14 @@ RESULT label=10k numModels=10 maxDepth=5 maxNodes=20 sampling=SampledFraction(0.
 RESULT label=10k numModels=10 maxDepth=20 maxNodes=100 sampling=Disjoint trainRows=9000 testRows=1000 accuracy=0.67 auc=0.7307909774436091
 RESULT label=10k numModels=10 maxDepth=20 maxNodes=100 sampling=SampledFraction(0.1) trainRows=9000 testRows=1000 accuracy=0.625 auc=0.6958756892230576
 RESULT label=10k numModels=20 maxDepth=5 maxNodes=20 sampling=Disjoint trainRows=9000 testRows=1000 accuracy=0.637 auc=0.7053052631578947
-RESULT label=10k numModels=20 maxDepth=5 maxNodes=20 sampling=SampledFraction(0.05) trainRows=9000 testRows=1000 accuracy=0.668 auc=0.72217343358395992026-08-08 19:03:23,008 INFO storage.BlockManager: Removing RDD 78
+RESULT label=10k numModels=20 maxDepth=5 maxNodes=20 sampling=SampledFraction(0.05) trainRows=9000 testRows=1000 accuracy=0.668 auc=0.7221734335839599
 RESULT label=10k numModels=20 maxDepth=20 maxNodes=100 sampling=Disjoint trainRows=9000 testRows=1000 accuracy=0.627 auc=0.7057022556390978
 RESULT label=10k numModels=20 maxDepth=20 maxNodes=100 sampling=SampledFraction(0.05) trainRows=9000 testRows=1000 accuracy=0.654 auc=0.7247338345864661
 RESULT label=10k numModels=40 maxDepth=5 maxNodes=20 sampling=Disjoint trainRows=9000 testRows=1000 accuracy=0.641 auc=0.7201403508771932
 RESULT label=10k numModels=40 maxDepth=5 maxNodes=20 sampling=SampledFraction(0.025) trainRows=9000 testRows=1000 accuracy=0.645 auc=0.7255919799498747
 RESULT label=10k numModels=40 maxDepth=20 maxNodes=100 sampling=Disjoint trainRows=9000 testRows=1000 accuracy=0.651 auc=0.7245353383458648
 RESULT label=10k numModels=40 maxDepth=20 maxNodes=100 sampling=SampledFraction(0.025) trainRows=9000 testRows=1000 accuracy=0.667 auc=0.738003007518797
-SCALING label=10k trainRows=9000 sweepSize=12 elapsedSeconds=2.15
+SCALING label=10k trainRows=9000 sweepSize=12 elapsedSeconds=2.11
 RESULT label=100k numModels=10 maxDepth=5 maxNodes=20 sampling=Disjoint trainRows=90000 testRows=10000 accuracy=0.6636 auc=0.7110744996620707
 RESULT label=100k numModels=10 maxDepth=5 maxNodes=20 sampling=SampledFraction(0.1) trainRows=90000 testRows=10000 accuracy=0.6635 auc=0.7129795267260464
 RESULT label=100k numModels=10 maxDepth=20 maxNodes=100 sampling=Disjoint trainRows=90000 testRows=10000 accuracy=0.6638 auc=0.7209901879572238
@@ -23,7 +23,7 @@ RESULT label=100k numModels=40 maxDepth=5 maxNodes=20 sampling=Disjoint trainRow
 RESULT label=100k numModels=40 maxDepth=5 maxNodes=20 sampling=SampledFraction(0.025) trainRows=90000 testRows=10000 accuracy=0.6666 auc=0.7336339400467543
 RESULT label=100k numModels=40 maxDepth=20 maxNodes=100 sampling=Disjoint trainRows=90000 testRows=10000 accuracy=0.6801 auc=0.7490433614724775
 RESULT label=100k numModels=40 maxDepth=20 maxNodes=100 sampling=SampledFraction(0.025) trainRows=90000 testRows=10000 accuracy=0.6814 auc=0.7523775793436883
-SCALING label=100k trainRows=90000 sweepSize=12 elapsedSeconds=5.08
+SCALING label=100k trainRows=90000 sweepSize=12 elapsedSeconds=5.97
 RESULT label=1m numModels=10 maxDepth=5 maxNodes=20 sampling=Disjoint trainRows=900000 testRows=100000 accuracy=0.65668 auc=0.6799748495184367
 RESULT label=1m numModels=10 maxDepth=5 maxNodes=20 sampling=SampledFraction(0.1) trainRows=900000 testRows=100000 accuracy=0.65578 auc=0.6844651511598482
 RESULT label=1m numModels=10 maxDepth=20 maxNodes=100 sampling=Disjoint trainRows=900000 testRows=100000 accuracy=0.65204 auc=0.6861376980840961
@@ -36,11 +36,11 @@ RESULT label=1m numModels=40 maxDepth=5 maxNodes=20 sampling=Disjoint trainRows=
 RESULT label=1m numModels=40 maxDepth=5 maxNodes=20 sampling=SampledFraction(0.025) trainRows=900000 testRows=100000 accuracy=0.65833 auc=0.7014853029373155
 RESULT label=1m numModels=40 maxDepth=20 maxNodes=100 sampling=Disjoint trainRows=900000 testRows=100000 accuracy=0.6542 auc=0.7076771889321168
 RESULT label=1m numModels=40 maxDepth=20 maxNodes=100 sampling=SampledFraction(0.025) trainRows=900000 testRows=100000 accuracy=0.64932 auc=0.7052759543759419
-SCALING label=1m trainRows=900000 sweepSize=12 elapsedSeconds=40.54
+SCALING label=1m trainRows=900000 sweepSize=12 elapsedSeconds=39.47
 RESULT numModels=10 maxDepth=20 maxNodes=100 nodeSize=5 testCount=10000 accuracy=0.6638 auc=0.7209901879572238
 RESULT sampling=disjoint aggregation=majority-vote numModels=10 testCount=10000 accuracy=0.6638 auc=0.7209901879572238
 RESULT sampling=disjoint aggregation=mean-probability numModels=10 testCount=10000 accuracy=0.6757 auc=0.7370102488918188
 RESULT sampling=sampled-fraction(0.1) aggregation=majority-vote numModels=10 testCount=10000 accuracy=0.6534 auc=0.7099757890796069
 RESULT sampling=sampled-fraction(0.1) aggregation=mean-probability numModels=10 testCount=10000 accuracy=0.6685 auc=0.7275549581565248
-RESULT model=DecisionTree trainSeconds=1.59 accuracy=0.6742 auc=0.7317940718928252
-RESULT model=RandomForest trainSeconds=2.28 accuracy=0.6854 auc=0.7559083152060463
+RESULT model=DecisionTree trainSeconds=1.64 accuracy=0.6742 auc=0.7317940718928252
+RESULT model=RandomForest trainSeconds=2.35 accuracy=0.6854 auc=0.7559083152060463
